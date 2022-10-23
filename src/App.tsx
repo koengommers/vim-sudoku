@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 const AppContainer = styled.div`
   padding-top: 60px;
-  width: 420px;
+  width: 460px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -30,8 +30,19 @@ const Description = styled.div`
   margin: 0 auto 35px;
   text-align: center;
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.8;
 `;
+
+const Key = styled.span`
+  font-family: monospace;
+  background-color: ${theme.colors.darkGray};
+  font-weight: bold;
+  padding: 4px 8px;
+  margin: 0 2px;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+`
 
 const App = () => {
   const [state, dispatch] = useSudukoState();
@@ -51,7 +62,7 @@ const App = () => {
       <GlobalStyle />
       <AppContainer>
         <Description>
-          Use H, J, K, L to move around and number keys to fill in cells. Press ? for more advanced movements.
+          Use <Key>h</Key>, <Key>j</Key>, <Key>k</Key>, <Key>l</Key> to move around and number keys to fill in cells. Use <Key>b</Key>, <Key>w</Key>, <Key>e</Key>, <Key>gg</Key>, <Key>G</Key>, <Key>0</Key>, <Key>^</Key> and <Key>$</Key> to get around more quickly.
         </Description>
         <DifficultySelector
           selected={state.difficulty}
