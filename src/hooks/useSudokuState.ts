@@ -37,6 +37,12 @@ export type SudokuAction = {
   payload: number
 } | {
   type: 'CLEAR'
+} | {
+  type: 'MOVE_TO_BEGIN'
+} | {
+  type: 'MOVE_TO_END'
+} | {
+  type: 'MOVE_TO_FIRST_CHAR'
 }
 
 const initialState: SudokuState = {
@@ -128,6 +134,24 @@ const sudokuReducer = (state: SudokuState, action: SudokuAction): SudokuState =>
           ...state,
           state: state.state.substring(0, index) + '-' + state.state.substring(index + 1)
         }
+      }
+    case 'MOVE_TO_BEGIN':
+      return {
+        ...state,
+        position: [0, y]
+      }
+    case 'MOVE_TO_END':
+      return {
+        ...state,
+        position: [8, y]
+      }
+    case 'MOVE_TO_FIRST_CHAR':
+      const beginOfRow = getIndex([0, y])
+      const endOfRow = getIndex([8, y])
+      const firstCharX = Array.from(state.state.slice(beginOfRow, endOfRow)).findIndex(cell => cell !== '-')
+      return {
+        ...state,
+        position: [firstCharX === -1 ? 8 : firstCharX, y]
       }
     default:
       return state

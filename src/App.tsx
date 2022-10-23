@@ -72,11 +72,20 @@ const mappings: Mapping[] = [{
   trigger: '9',
   action: { type: 'FILL', payload: 9 }
 }, {
-  trigger: '0',
+  trigger: 'x',
   action: { type: 'CLEAR' }
 }, {
   trigger: 'r',
   action: { type: 'RESET_PUZZLE' }
+}, {
+  trigger: '0',
+  action: { type: 'MOVE_TO_BEGIN' }
+}, {
+  trigger: '$',
+  action: { type: 'MOVE_TO_END' }
+}, {
+  trigger: '^',
+  action: { type: 'MOVE_TO_FIRST_CHAR' }
 }];
 
 const AppContainer = styled.div`

@@ -1,12 +1,12 @@
 - [x] b, w keybinds
-- [ ] x keybind
-- [ ] repeat movements, 4j, 2w, etc
-- [ ] 0, ^, $ keybind
-- [ ] modal editing
-- [ ] add manual with keybinds
-- [ ] pausing
+- [x] x keybind
+- [x] 0, ^, $ keybind
 - [ ] resetting
-- [ ] local leaderboard
 - [ ] difficulty switching
+- [ ] pausing
+- [ ] local leaderboard
+- [ ] modal editing
+- [ ] repeat movements, 4j, 2w, etc
+- [ ] add manual with keybinds
 - [ ] solved state
 - [ ] add screenshot to repo
