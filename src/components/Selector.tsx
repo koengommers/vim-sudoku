@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import theme from '../theme';
 
-type Option = {
-  key: String,
-  label: String
+type Option<Key> = {
+  key: Key,
+  label: string
 };
 
-type SelectorProps = {
-  options: Option[],
-  selected: String,
-  setOption: (key: String) => void
+type SelectorProps<Key> = {
+  options: Option<Key>[],
+  selected: Key,
+  setOption: (key: Key) => void
 };
 
 const SelectorContainer = styled.div`
@@ -21,7 +21,7 @@ const SelectorContainer = styled.div`
 `;
 
 type SelectorButtonProps = {
-  selected: Boolean
+  selected: boolean
 }
 
 const SelectorButton = styled.button`
@@ -37,11 +37,12 @@ const SelectorButton = styled.button`
   cursor: pointer;
 `
 
-const Selector = ({ selected, options, setOption }: SelectorProps) => {
+const Selector = <Key extends string,>({ selected, options, setOption }: SelectorProps<Key>) => {
   return (
     <SelectorContainer>
       { options.map((option) => (
         <SelectorButton
+          key={option.key}
           onClick={() => setOption(option.key)}
           selected={option.key === selected}
         >{ option.label }</SelectorButton>

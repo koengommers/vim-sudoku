@@ -1,12 +1,14 @@
 import { useReducer } from 'react';
+import { Difficulty } from 'sudoku-gen/dist/types/difficulty.type';
 import { Sudoku } from 'sudoku-gen/dist/types/sudoku.type';
 
 type Position = [number, number];
 
 export type SudokuState = {
-  puzzle: String,
-  solution: String,
-  state: String,
+  difficulty: Difficulty,
+  puzzle: string,
+  solution: string,
+  state: string,
   position: Position,
   startTime: Date | null
 }
@@ -43,9 +45,13 @@ export type SudokuAction = {
   type: 'MOVE_TO_END'
 } | {
   type: 'MOVE_TO_FIRST_CHAR'
+} | {
+  type: 'SET_DIFFICULTY',
+  payload: Difficulty
 }
 
 const initialState: SudokuState = {
+  difficulty: 'easy',
   puzzle: '',
   solution: '',
   state: '',
@@ -152,6 +158,11 @@ const sudokuReducer = (state: SudokuState, action: SudokuAction): SudokuState =>
       return {
         ...state,
         position: [firstCharX === -1 ? 8 : firstCharX, y]
+      }
+    case 'SET_DIFFICULTY':
+      return {
+        ...state,
+        difficulty: action.payload
       }
     default:
       return state

@@ -2,11 +2,11 @@
 - [x] x keybind
 - [x] 0, ^, $ keybind
 - [ ] resetting
-- [ ] difficulty switching
+- [x] difficulty switching
 - [ ] pausing
+- [ ] solved state
 - [ ] local leaderboard
 - [ ] modal editing
 - [ ] repeat movements, 4j, 2w, etc
 - [ ] add manual with keybinds
-- [ ] solved state
 - [ ] add screenshot to repo

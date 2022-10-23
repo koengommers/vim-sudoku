@@ -2,16 +2,16 @@ import styled from 'styled-components';
 import theme, { colors } from '../theme';
 
 type SudokuGridProps = {
-  state: String,
-  puzzle: String,
+  state: string,
+  puzzle: string,
   position: [number, number]
 }
 
 type SudokuCellProps = {
-  selected: Boolean,
-  parallel: Boolean,
-  prefilled: Boolean,
-  similar: Boolean
+  selected: boolean,
+  parallel: boolean,
+  prefilled: boolean,
+  similar: boolean
 }
 
 const getCellColor = (props: SudokuCellProps) => {
