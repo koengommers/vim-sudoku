@@ -9,4 +9,4 @@
 - [ ] modal editing
 - [ ] repeat movements, 4j, 2w, etc
 - [ ] add manual with keybinds
-- [ ] add screenshot to repo
+- [x] add screenshot to repo
