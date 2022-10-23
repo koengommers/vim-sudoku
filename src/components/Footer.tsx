@@ -54,11 +54,11 @@ const Footer = ({ startTime }: FooterProps) => {
   return (
     <FooterContainer>
       <Timer><span>{ minutes }</span> min <span>{ seconds }</span> sec</Timer>
-      <Icons>
-        <MdPause />
-        <MdRefresh />
-        <MdBarChart />
-      </Icons>
+      {/* <Icons> */}
+      {/*   <MdPause /> */}
+      {/*   <MdRefresh /> */}
+      {/*   <MdBarChart /> */}
+      {/* </Icons> */}
     </FooterContainer>
   );
 };
