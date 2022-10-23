@@ -25,6 +25,10 @@ export type SudokuAction = {
 } | {
   type: 'MOVE_END_OF_CELL'
 } | {
+  type: 'MOVE_BEGIN_OF_CELL'
+} | {
+  type: 'MOVE_TO_NEXT_CELL'
+} | {
   type: 'MOVE_TO_TOP'
 } | {
   type: 'MOVE_TO_BOTTOM'
@@ -47,6 +51,7 @@ const getIndex = ([x, y]: Position): number => y * 9 + x
 
 const sudokuReducer = (state: SudokuState, action: SudokuAction): SudokuState => {
   const index = getIndex(state.position);
+  const [x, y] = state.position
 
   switch (action.type) {
     case 'SET_PUZZLE':
@@ -80,11 +85,25 @@ const sudokuReducer = (state: SudokuState, action: SudokuAction): SudokuState =>
         position: [newX, state.position[1]]
       }
     case 'MOVE_END_OF_CELL':
-      const [x] = state.position;
-      const update = (3 - ((x + 1) % 3));
+      let endOfCell = x + (3 - ((x + 1) % 3));
+      if (endOfCell > 8) endOfCell = 8;
       return {
         ...state,
-        position: [x + update, state.position[1]]
+        position: [endOfCell, state.position[1]]
+      }
+    case 'MOVE_BEGIN_OF_CELL':
+      let beginOfCell = x - ((x % 3) === 0 ? 3 : x % 3);
+      if (beginOfCell < 0) beginOfCell = 0;
+      return {
+        ...state,
+        position: [beginOfCell, state.position[1]]
+      }
+    case 'MOVE_TO_NEXT_CELL':
+      let nextCell = x + (3 - (x % 3));
+      if (nextCell > 8) nextCell = 6;
+      return {
+        ...state,
+        position: [nextCell, state.position[1]]
       }
     case 'MOVE_TO_TOP':
       return {

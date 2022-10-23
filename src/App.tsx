@@ -30,6 +30,12 @@ const mappings: Mapping[] = [{
   trigger: 'l',
   action: { type: 'MOVE_HORIZONTAL', payload: 1 }
 }, {
+  trigger: 'b',
+  action: { type: 'MOVE_BEGIN_OF_CELL' }
+}, {
+  trigger: 'w',
+  action: { type: 'MOVE_TO_NEXT_CELL' }
+}, {
   trigger: 'e',
   action: { type: 'MOVE_END_OF_CELL' }
 }, {
@@ -109,7 +115,6 @@ const App = () => {
 
   useEffect(() => {
     const sudoku = getSudoku('easy');
-    console.log(sudoku);
     dispatch({ type: 'SET_PUZZLE', payload: sudoku })
   }, [])
 
