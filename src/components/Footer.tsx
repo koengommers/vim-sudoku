@@ -10,7 +10,7 @@ const FooterContainer = styled.div`
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  padding: 0 35px;
+  padding: 0 55px;
   box-sizing: border-box;
 `;
 
@@ -21,7 +21,6 @@ type FooterProps = {
 const Timer = styled.div`
   font-weight: bold;
   font-size: 14px;
-  margin-left: -5px;
 
   span {
     font-size: 28px;
